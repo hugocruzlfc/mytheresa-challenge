@@ -3,10 +3,13 @@ import { z } from "zod";
 
 export const env = createEnv({
   server: {
-    OMDB_API_KEY: z.string().min(1),
+    TMDB_TOKEN: z.string().min(1),
+    TMDB_BASE_URL: z.string().url(),
   },
+  client: {},
 
   runtimeEnv: {
-    OMDB_API_KEY: process.env.OMDB_API_KEY,
+    TMDB_TOKEN: process.env.TMDB_TOKEN,
+    TMDB_BASE_URL: process.env.TMDB_BASE_URL,
   },
 });
