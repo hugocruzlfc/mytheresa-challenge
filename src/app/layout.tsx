@@ -1,4 +1,4 @@
-import ReactQueryProvider from "@/components/providers/react-query-provider";
+import { ReactQueryProvider } from "@/components/providers/react-query-provider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nextjs Perfect Base Template",
-  description: "A perfect base template for Next.js applications",
+  title: "MyTheresa Challenge",
+  description: "A challenge to create a movie database application",
 };
 
 export default function RootLayout({

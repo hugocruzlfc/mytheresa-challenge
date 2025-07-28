@@ -1,11 +1,10 @@
+import { env } from "@/env";
 import ky from "ky";
 
 const kyInstance = ky.create({
-  parseJson: (text) =>
-    JSON.parse(text, (key, value) => {
-      if (key === "startDate" || key === "endDate") return new Date(value);
-      return value;
-    }),
+  headers: {
+    Authorization: `Bearer ${env.NEXT_PUBLIC_TMDB_TOKEN}`,
+  },
 });
 
 export default kyInstance;

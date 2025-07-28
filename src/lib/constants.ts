@@ -1,7 +1,5 @@
-export const API_ENDPOINTS = {
-  GENRES: "/api/get-genres",
-};
-
 export const BACKEND_ENDPOINTS = {
-  GENRES: "/genre/movie/list",
+  GENRES: "/genre/movie/list" as const,
+  MOVIES_BY_GENRE: (genreId: number) =>
+    `/discover/movie?with_genres=${genreId}` as const,
 };

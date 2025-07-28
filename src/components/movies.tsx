@@ -1,11 +1,16 @@
 "use client";
 
 import { useGetGenres } from "@/hooks/get-use-genres";
+import MoviesByGenre from "./movies-by-genre";
 
 export default function Movies() {
-  const { moviesGenres } = useGetGenres();
+  const { genres } = useGetGenres();
 
-  console.log(moviesGenres);
-
-  return <div>{JSON.stringify(moviesGenres, null, 2)}</div>;
+  return (
+    <div>
+      {genres.map((genre) => (
+        <MoviesByGenre key={genre.id} genreId={genre.id} />
+      ))}
+    </div>
+  );
 }

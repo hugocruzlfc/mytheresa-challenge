@@ -1,21 +1,22 @@
 import { env } from "@/env";
 import { BACKEND_ENDPOINTS } from "@/lib/constants";
 import kyInstance from "@/lib/ky-instance";
-import { GenresResponse } from "@/lib/types";
 import { QueryKey, useSuspenseQuery } from "@tanstack/react-query";
 
-export function useGetGenres() {
-  const queryKey: QueryKey = ["movies-genres"];
+export function useGetMoviesByGenre({ genreId }: { genreId: number }) {
+  const queryKey: QueryKey = ["movies-by-genre", genreId];
   const { data } = useSuspenseQuery({
     queryKey,
     queryFn: () =>
       kyInstance
-        .get(`${env.NEXT_PUBLIC_TMDB_BASE_URL}${BACKEND_ENDPOINTS.GENRES}`)
-        .json<GenresResponse>(),
+        .get(
+          `${env.NEXT_PUBLIC_TMDB_BASE_URL}${BACKEND_ENDPOINTS.MOVIES_BY_GENRE(genreId)}`,
+        )
+        .json(),
     staleTime: Infinity,
   });
 
   return {
-    genres: data.genres,
+    moviesByGenres: data,
   };
 }
