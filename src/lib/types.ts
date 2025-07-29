@@ -29,3 +29,13 @@ export interface MoviesByGenresResponse {
   total_pages: number;
   total_results: number;
 }
+
+interface Poster {
+  file_path: string;
+  height: number;
+  width: number;
+  aspect_ratio: number;
+}
+export interface MoviePictureResponse {
+  posters: Poster[];
+}

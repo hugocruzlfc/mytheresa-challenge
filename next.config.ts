@@ -17,3 +17,7 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+// images: {
+//   remotePatterns: [new URL("https://api.themoviedb.org/3/t/p/w500/**")],
+// },
