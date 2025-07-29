@@ -22,6 +22,8 @@ export interface Movie {
   video: false;
   vote_average: number;
   vote_count: number;
+  budget: number;
+  revenue: number;
 }
 export interface MoviesByGenresResponse {
   page: number;

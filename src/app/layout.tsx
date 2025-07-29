@@ -30,7 +30,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
-        <ReactQueryProvider>{children}</ReactQueryProvider>
+        <ReactQueryProvider>
+          <div className="mx-auto flex w-full max-w-7xl grow flex-col gap-5 p-5">
+            {children}
+          </div>
+        </ReactQueryProvider>
       </body>
     </html>
   );

@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/carousel";
 import { useGetMoviesByGenre } from "@/hooks/get-use-movie-by-genre";
 
-import MovieCarouselTile from "./movie-carousel-tile";
+import MovieCarouselItem from "./movie-carousel-item";
 import { Badge } from "./ui/badge";
 
 interface MoviesByGenreCarouselProps {
@@ -28,7 +28,7 @@ export default function MoviesByGenreCarousel({
       <Carousel className="w-full">
         <CarouselContent className="-ml-1">
           {moviesByGenres.map((movie) => (
-            <MovieCarouselTile
+            <MovieCarouselItem
               key={movie.id}
               title={movie.title}
               movieId={movie.id}

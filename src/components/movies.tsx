@@ -7,7 +7,7 @@ export default function Movies() {
   const { genres } = useGetGenres();
 
   return (
-    <div className="mx-auto flex w-full max-w-7xl grow flex-col gap-5 p-5">
+    <>
       {genres.map((genre) => (
         <MoviesByGenreCarousel
           key={genre.id}
@@ -15,6 +15,6 @@ export default function Movies() {
           genreName={genre.name}
         />
       ))}
-    </div>
+    </>
   );
 }
