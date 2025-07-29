@@ -1,26 +1,35 @@
-# Next.js Current Version (15.1.4) Template
+# Challenge Steps
 
-This template is a base project in **Next.js Current Version** with everything you need to start coding fast. It comes loaded with **Tailwind CSS**, **TypeScript**, **Prettier**, **ESLint**, **Commitizen**, and **Husky** so you have a clean and ready setup. Copy the files, run the server, and get programming!
+## Step 1: Project Setup
 
-## What's included?
+- Use as scaffolding my own Nextjs [template](https://www.npmjs.com/package/@hugo_cruz/nextjs-setup), it has everything I work with on a daily basis.
 
-- Next.js 15 with Turbopack support.
-- Tailwind CSS v4 for fast styling.
-- TypeScript for safer code.
-- Prettier with plugins for sorting imports and Tailwind.
-- ESLint 9 configured with Next.js.
-- Commitizen for standardized commits with `cz-conventional-changelog`.
-- Husky for automatic Git hooks.
-- Basic structure: `src/app`, `src/lib`.
+## Step 2: Create main components
+
+- Create my main provider to fetch with [TanStack Query](https://tanstack.com/query/latest/docs/framework/react/overview) and the [ky](https://www.npmjs.com/package/ky) instance.
+- I installed the UX components I needed and created the necessary hooks for my operations
+- I modeled the landing page with the necessary components.
+- In a first instance I used all the available generators and that's why I do a fetch of all the existing ones, it could have been much simpler without this since you ask for 3, but I read it after finishing all this.
+
+## Step 3: Create the details page
+
+- I created the details page with the necessary components. Actions and hooks and add a internal endpoint for the details movie fetch.
+
+## Step 4: Create the custom css
+
+- I created the utility function "getGenreStyles" to get the styles of the specific genres.
+
+# Project Setup
+
+- Clone the repository and create .env file with the following variables( this is a mandatory but de tmdb token is necessary for the project to work properly):
+
+```typescript
+NEXT_PUBLIC_TMDB_TOKEN = NEXT_PUBLIC_TMDB_BASE_URL =
+  "https://api.themoviedb.org/3";
+NEXT_PUBLIC_TMDB_IMAGES_URL = "https://image.tmdb.org/t/p/w500";
+PROJECT_BASE_URL = "http://localhost:3000";
+```
 
 ## Author
 
 - Hugo Cruz de la Torres [Linkedin](https://www.linkedin.com/in/hugo-cruz-7a0630197)
-
-## Contributions
-
-- If you want to contribute, go ahead! Open an issue or a pull request and I'll be happy to review it.
-- [Issues](https://github.com/hugocruzlfc/nextjs-setup/issues)
-- [Pull requests](https://github.com/hugocruzlfc/nextjs-setup/pulls)
-
-## Happy coding 🎉👨🏻‍💻!!!!
