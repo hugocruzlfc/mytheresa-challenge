@@ -1,3 +1,4 @@
+import { AddToWishListButton } from "@/components/add-to-wish-list-button";
 import MovieTile from "@/components/movie-tile";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { TypographyP } from "@/components/ui/typography";
@@ -50,7 +51,10 @@ export default async function Page({ params }: PageProps) {
             className="border-none shadow-none"
           />
         </div>
-        <TypographyP className="w-full md:w-2/5">{movie.overview}</TypographyP>
+        <div className="flex w-full flex-col items-end space-y-4 p-2 md:w-2/5 md:py-8">
+          <TypographyP>{movie.overview}</TypographyP>
+          <AddToWishListButton movieId={movie.id} />
+        </div>
       </CardContent>
       <CardFooter className="flex flex-col">
         <TypographyP>Release Date: {movie.release_date}</TypographyP>

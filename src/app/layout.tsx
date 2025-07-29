@@ -2,6 +2,7 @@ import Navbar from "@/components/nav-bar";
 import { ReactQueryProvider } from "@/components/providers/react-query-provider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MyTheresa Challenge",
-  description: "A challenge to create a movie database application",
+  title: "Movie Database",
+  description: "A simple movie database application",
 };
 
 export default function RootLayout({
@@ -35,6 +36,7 @@ export default function RootLayout({
             {children}
           </div>
         </ReactQueryProvider>
+        <Toaster />
       </body>
     </html>
   );
