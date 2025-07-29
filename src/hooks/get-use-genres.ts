@@ -15,7 +15,11 @@ export function useGetGenres() {
     staleTime: Infinity,
   });
 
+  const filteredGenres = data.genres.filter((genre) =>
+    [28, 12, 16].includes(genre.id),
+  );
+
   return {
-    genres: data.genres,
+    genres: filteredGenres,
   };
 }

@@ -6,6 +6,7 @@ import { env } from "@/env";
 import { API_ENDPOINTS } from "@/lib/constants";
 import kyInstance from "@/lib/ky-instance";
 import { Movie } from "@/lib/types";
+import { getGenreStyles } from "@/lib/utils";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cache } from "react";
@@ -41,6 +42,12 @@ export default async function Page({ params }: PageProps) {
 
   const movie = await getMovie(Number(movieId));
 
+  const primaryGenreId = movie.genres?.find(({ id }) =>
+    [28, 12, 16].includes(id),
+  );
+
+  const { className } = getGenreStyles(primaryGenreId?.id);
+
   return (
     <Card>
       <CardContent className="flex flex-col gap-4 md:flex-row">
@@ -53,7 +60,7 @@ export default async function Page({ params }: PageProps) {
         </div>
         <div className="flex w-full flex-col items-end space-y-4 p-2 md:w-2/5 md:py-8">
           <TypographyP>{movie.overview}</TypographyP>
-          <AddToWishListButton movieId={movie.id} />
+          <AddToWishListButton movieId={movie.id} className={className} />
         </div>
       </CardContent>
       <CardFooter className="flex flex-col">

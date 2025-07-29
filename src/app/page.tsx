@@ -13,8 +13,8 @@ export default function Home() {
 function MoviesByGenreCarouselSkeleton() {
   return (
     <>
-      {Array.from({ length: 5 }).map((_, index) => (
-        <div className="space-y-2">
+      {Array.from({ length: 3 }).map((_, index) => (
+        <div className="space-y-2" key={index}>
           <Skeleton className="h-6 w-24 rounded-full" />
           <div className="w-full">
             <div className="flex space-x-2">

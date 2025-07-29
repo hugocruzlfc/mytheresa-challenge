@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/carousel";
 import { useGetMoviesByGenre } from "@/hooks/get-use-movie-by-genre";
 
+import { getGenreStyles } from "@/lib/utils";
 import MovieCarouselItem from "./movie-carousel-item";
 import { Badge } from "./ui/badge";
 
@@ -21,10 +22,11 @@ export default function MoviesByGenreCarousel({
   genreName,
 }: MoviesByGenreCarouselProps) {
   const { moviesByGenres } = useGetMoviesByGenre({ genreId });
+  const { className } = getGenreStyles(genreId);
 
   return (
     <div className="space-y-2">
-      <Badge>{genreName}</Badge>
+      <Badge className={className}>{genreName}</Badge>
       <Carousel className="w-full">
         <CarouselContent className="-ml-1">
           {moviesByGenres.map((movie) => (

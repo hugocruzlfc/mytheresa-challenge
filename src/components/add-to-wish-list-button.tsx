@@ -1,15 +1,19 @@
 "use client";
 
-import { addToWishListAction } from "@/app/actions/add-to-wish-list";
+import { addToWishListAction } from "@/actions/add-to-wish-list";
 import { Button } from "@/components/ui/button";
 import { useTransition } from "react";
 import { toast } from "sonner";
 
 interface AddToWishListButtonProps {
   movieId: number;
+  className?: string;
 }
 
-export function AddToWishListButton({ movieId }: AddToWishListButtonProps) {
+export function AddToWishListButton({
+  movieId,
+  className,
+}: AddToWishListButtonProps) {
   const [isPending, startTransition] = useTransition();
 
   const handleSubmit = async (formData: FormData) => {
@@ -30,7 +34,12 @@ export function AddToWishListButton({ movieId }: AddToWishListButtonProps) {
   return (
     <form action={handleSubmit}>
       <input type="hidden" name="movieId" value={movieId} />
-      <Button variant="outline" type="submit" disabled={isPending}>
+      <Button
+        variant="outline"
+        type="submit"
+        disabled={isPending}
+        className={className}
+      >
         {isPending ? "Adding..." : "Add to wish list"}
       </Button>
     </form>
